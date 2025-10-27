@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Peona Flo — Контакти</title>
+  <meta name="description" content="Контакти Peona Flo — замовлення, питання, співпраця." />
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner container">
+      <div class="logo">Peona <span>Flo</span></div>
+      <button class="nav-toggle" id="navToggleContact" aria-expanded="false">☰</button>
+    </div>
+    <nav class="nav" id="mainNavContact" aria-hidden="true">
+      <a href="index.html">Головна</a>
+      <a href="shop.html">Магазин</a>
+      <a href="about.html">Про нас</a>
+      <a href="contact.html">Контакти</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <h2>Контакти</h2>
+      <p>Пишіть нам — ми відповідаємо швидко. Зручний спосіб замовлення — WhatsApp.</p>
+
+      <div class="contact-cards">
+        <a class="contact-btn" href="mailto:peona.flo@gmail.com">
+          <strong>peona.flo@gmail.com</strong>
+          <span style="display:block;font-size:13px;color:var(--muted)">Пишіть для співпраці або питань</span>
+        </a>
+
+        <a class="contact-btn" href="tel:+380500342827">
+          <strong>+38 (050) 034-2827</strong>
+          <span style="display:block;font-size:13px;color:var(--muted)">Телефон для замовлень</span>
+        </a>
+
+        <a class="contact-btn" href="https://wa.me/380500342827" target="_blank" rel="noopener">
+          <strong>Написати в WhatsApp</strong>
+          <span style="display:block;font-size:13px;color:var(--muted)">Швидке замовлення</span>
+        </a>
+
+        <a class="contact-btn" href="https://instagram.com/peona_flo" target="_blank" rel="noopener">
+          <strong>@peona_flo</strong>
+          <span style="display:block;font-size:13px;color:var(--muted)">Дивіться приклади робіт в Instagram</span>
+        </a>
+      </div>
+
+      <form id="contactForm" class="lead-form" onsubmit="handleContact(event)" style="margin-top:12px">
+        <label for="cname">Ваше ім'я</label>
+        <input id="cname" name="name" required placeholder="Олена">
+
+        <label for="cphone" style="margin-top:8px">Телефон</label>
+        <input id="cphone" name="phone" type="tel" required placeholder="+380501234567">
+
+        <label for="cmessage" style="margin-top:8px">Повідомлення</label>
+        <textarea id="cmessage" name="message" rows="4" required placeholder="Коротко про замовлення або запит"></textarea>
+
+        <button class="btn primary" type="submit">Надіслати</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 Peona Flo — Київ</p>
+    </div>
+  </footer>
+
+<script>
+/* NAV toggle */
+const navToggleContact = document.getElementById('navToggleContact');
+const mainNavContact = document.getElementById('mainNavContact');
+navToggleContact.addEventListener('click', ()=> {
+  const open = mainNavContact.style.display === 'block';
+  mainNavContact.style.display = open ? 'none' : 'block';
+  navToggleContact.setAttribute('aria-expanded', String(!open));
+});
+
+/* contact form fake handler */
+function handleContact(e){
+  e.preventDefault();
+  const name = document.getElementById('cname').value;
+  const phone = document.getElementById('cphone').value;
+  alert(`Дякуємо, ${name}! Ми зв'яжемося з вами на ${phone} найближчим часом.`);
+  e.target.reset();
+}
+</script>
+</body>
+</html>
