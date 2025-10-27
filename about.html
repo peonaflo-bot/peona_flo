@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Peona Flo — Про нас</title>
+  <meta name="description" content="Історія Peona Flo — невеличкої майстерні з великим серцем." />
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner container">
+      <div class="logo">Peona <span>Flo</span></div>
+      <button class="nav-toggle" id="navToggleAbout" aria-expanded="false">☰</button>
+    </div>
+    <nav class="nav" id="mainNavAbout" aria-hidden="true">
+      <a href="index.html">Головна</a>
+      <a href="shop.html">Магазин</a>
+      <a href="about.html">Про нас</a>
+      <a href="contact.html">Контакти</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="section about">
+      <h2>Наша історія</h2>
+      <p>Peona Flo народилась з маленького бажання — робити людей щасливішими за допомогою квітів. Наші букети — це ніжні послання, які говорять більше, ніж слова. Ми збираємо букети руками, додаємо туди трохи настрою й відправляємо до ваших дверей.</p>
+
+      <div style="margin-top:14px;display:flex;justify-content:center">
+        <img src="assets/about.jpg" alt="Власниця Peona Flo" style="width:92%;max-width:420px;border-radius:12px;object-fit:cover;box-shadow:0 8px 20px rgba(0,0,0,0.06)">
+      </div>
+
+      <p style="margin-top:12px;color:var(--muted);text-align:center">Ми любимо деталі: аромат, текстуру листя, ніжний колір пелюсток. Кожне замовлення — як маленьке свято для нас.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 Peona Flo — Київ</p>
+    </div>
+  </footer>
+
+<script>
+/* NAV toggle */
+const navToggleAbout = document.getElementById('navToggleAbout');
+const mainNavAbout = document.getElementById('mainNavAbout');
+navToggleAbout.addEventListener('click', ()=> {
+  const open = mainNavAbout.style.display === 'block';
+  mainNavAbout.style.display = open ? 'none' : 'block';
+  navToggleAbout.setAttribute('aria-expanded', String(!open));
+});
+</script>
+</body>
+</html>
