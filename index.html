@@ -1,62 +1,162 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Peona Flo | Квіти з душею</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Peona Flo — Головна</title>
+  <meta name="description" content="Peona Flo — авторські букети, доставка по Києву. Ніжні композиції." />
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <header>
-    <div class="logo">Peona Flo</div>
-    <nav>
-      <a href="#">Головна</a>
-      <a href="#">Каталог</a>
-      <a href="#">Контакти</a>
+  <header class="header">
+    <div class="header-inner container">
+      <div class="logo">Peona <span>Flo</span></div>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false">☰</button>
+    </div>
+    <nav class="nav" id="mainNav" aria-hidden="true">
+      <a href="index.html">Головна</a>
+      <a href="shop.html">Магазин</a>
+      <a href="about.html">Про нас</a>
+      <a href="contact.html">Контакти</a>
     </nav>
   </header>
 
-  <section class="hero">
-    <div class="hero-overlay"></div>
-    <img src="assets/flowers-hero.jpg" alt="Букет квітів">
-    <div class="hero-text">
-      <h1>Квіти, що говорять замість слів</h1>
-      <p>Peona Flo створює букети, які передають емоції з любов’ю та ніжністю.</p>
-      <a href="#" class="btn">Переглянути колекцію</a>
+  <main>
+    <section class="hero">
+      <img src="assets/hero.jpg" alt="Ніжний букет" class="hero-img">
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="hero-content container">
+        <h1>Квіти, що говорять замість слів</h1>
+        <p class="lead">Авторські букети з доставкою по Києву — ніжно, стильно, швидко.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="shop.html">Переглянути колекцію</a>
+          <a class="btn wa" href="https://wa.me/380500342827" target="_blank" rel="noopener">Написати в WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="roses">
+      <h2>Рози та композиції</h2>
+      <p>Натисніть на фото, щоб збільшити — кожна фотографія показує реальний букет.</p>
+
+      <div class="gallery-grid" id="galleryGrid" aria-live="polite">
+        <!-- Replace these src with your assets -->
+        <img src="assets/rose1.jpg" alt="Роза 1" data-full="assets/rose1.jpg">
+        <img src="assets/rose2.jpg" alt="Роза 2" data-full="assets/rose2.jpg">
+        <img src="assets/rose3.jpg" alt="Роза 3" data-full="assets/rose3.jpg">
+        <img src="assets/rose4.jpg" alt="Роза 4" data-full="assets/rose4.jpg">
+        <img src="assets/rose5.jpg" alt="Роза 5" data-full="assets/rose5.jpg">
+        <img src="assets/rose6.jpg" alt="Роза 6" data-full="assets/rose6.jpg">
+      </div>
+    </section>
+
+    <!-- Videos block placed before footer -->
+    <section class="section container" id="videos">
+      <h2>Процес створення</h2>
+      <p>Три короткі відео — процес, деталі, упаковка.</p>
+
+      <div class="videos">
+        <div class="video-card">
+          <video playsinline muted loop preload="metadata" poster="assets/video1-poster.jpg">
+            <source src="assets/video1.mp4" type="video/mp4">
+            Ваш браузер не підтримує відео.
+          </video>
+        </div>
+
+        <div class="video-card">
+          <video playsinline muted loop preload="metadata" poster="assets/video2-poster.jpg">
+            <source src="assets/video2.mp4" type="video/mp4">
+            Ваш браузер не підтримує відео.
+          </video>
+        </div>
+
+        <div class="video-card">
+          <video playsinline muted loop preload="metadata" poster="assets/video3-poster.jpg">
+            <source src="assets/video3.mp4" type="video/mp4">
+            Ваш браузер не підтримує відео.
+          </video>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 Peona Flo — Київ</p>
     </div>
-  </section>
-
-  <section class="about">
-    <h2>Про нас</h2>
-    <p>Кожна квітка має свою історію. У Peona Flo ми поєднуємо естетику, аромат і почуття, щоб створити справжнє мистецтво у вигляді букета.</p>
-  </section>
-
-  <section class="gallery">
-    <h2>Наші букети</h2>
-    <div class="gallery-grid">
-      <img src="assets/bouquet1.jpg" alt="Букет 1">
-      <img src="assets/bouquet2.jpg" alt="Букет 2">
-      <img src="assets/bouquet3.jpg" alt="Букет 3">
-      <img src="assets/bouquet4.jpg" alt="Букет 4">
-      <img src="assets/bouquet5.jpg" alt="Букет 5">
-      <img src="assets/bouquet6.jpg" alt="Букет 6">
-    </div>
-  </section>
-
-  <section class="cta">
-    <h2>Замовте зараз</h2>
-    <p>Подаруйте близьким радість — ми доставимо ваш букет у найкоротші терміни.</p>
-    <div class="cta-buttons">
-      <a href="#" class="btn">Instagram</a>
-      <a href="#" class="btn btn-whatsapp">WhatsApp</a>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2025 Peona Flo. Всі права захищені.</p>
   </footer>
+
+  <!-- Modal for Gallery (re-used for shop item preview if needed) -->
+  <div id="modalBackdrop" class="modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal">
+      <button class="close-modal" id="closeModal" aria-label="Закрити" style="position:absolute;right:10px;top:10px;background:transparent;border:0;font-size:22px;color:#fff">✕</button>
+      <div class="modal-body">
+        <img id="modalImage" src="" alt="">
+        <div id="modalCaption" class="desc"></div>
+      </div>
+    </div>
+  </div>
+
+<script>
+/* NAV toggle */
+const navToggle = document.getElementById('navToggle');
+const mainNav = document.getElementById('mainNav');
+navToggle.addEventListener('click', ()=> {
+  const open = mainNav.style.display === 'block';
+  mainNav.style.display = open ? 'none' : 'block';
+  navToggle.setAttribute('aria-expanded', String(!open));
+});
+
+/* Gallery modal */
+const galleryGrid = document.getElementById('galleryGrid');
+const modalBackdrop = document.getElementById('modalBackdrop');
+const modalImage = document.getElementById('modalImage');
+const modalCaption = document.getElementById('modalCaption');
+const closeModal = document.getElementById('closeModal');
+
+galleryGrid.addEventListener('click', e => {
+  const img = e.target.closest('img');
+  if (!img) return;
+  const full = img.dataset.full || img.src;
+  modalImage.src = full;
+  modalImage.alt = img.alt || '';
+  modalCaption.textContent = img.alt || '';
+  modalBackdrop.classList.add('show');
+  modalBackdrop.setAttribute('aria-hidden','false');
+});
+
+closeModal.addEventListener('click', () => {
+  modalBackdrop.classList.remove('show');
+  modalBackdrop.setAttribute('aria-hidden','true');
+  modalImage.src = '';
+});
+
+/* Close modal on backdrop click */
+modalBackdrop.addEventListener('click', (e) => {
+  if (e.target === modalBackdrop) {
+    modalBackdrop.classList.remove('show');
+    modalBackdrop.setAttribute('aria-hidden','true');
+    modalImage.src = '';
+  }
+});
+
+/* Autoplay videos when visible (improves battery) */
+const videos = document.querySelectorAll('video');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(ent => {
+    const v = ent.target;
+    if (ent.isIntersecting) {
+      v.play().catch(()=>{/* ignore */});
+    } else {
+      v.pause();
+      v.currentTime = 0;
+    }
+  });
+},{threshold:0.5});
+videos.forEach(v=>obs.observe(v));
+</script>
 
 </body>
 </html>
