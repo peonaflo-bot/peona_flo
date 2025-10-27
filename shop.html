@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Peona Flo — Магазин</title>
+  <meta name="description" content="Магазин Peona Flo — замовляйте букети просто з телефону через WhatsApp." />
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner container">
+      <div class="logo">Peona <span>Flo</span></div>
+      <button class="nav-toggle" id="navToggleShop" aria-expanded="false">☰</button>
+    </div>
+    <nav class="nav" id="mainNavShop" aria-hidden="true">
+      <a href="index.html">Головна</a>
+      <a href="shop.html">Магазин</a>
+      <a href="about.html">Про нас</a>
+      <a href="contact.html">Контакти</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <h2>Колекція</h2>
+      <p>Натисніть «Переглянути» щоб побачити деталі — замовлення приймаємо через WhatsApp.</p>
+
+      <div class="items-grid" id="itemsGrid">
+        <!-- Example item cards: update images and data as needed -->
+        <div class="item-card" data-name="Букет 'Ранкова рожева' " data-price="750" data-img="assets/item1.jpg" data-desc="Ніжний букет із 11 рожевих троянд, обмотаний у крафт-папір.">
+          <img src="assets/item1.jpg" alt="Букет Ранкова рожева">
+          <div>
+            <div class="item-meta">
+              <div>Ранкова рожева</div>
+              <div class="price">₴750</div>
+            </div>
+            <button class="btn primary view-item">Переглянути</button>
+          </div>
+        </div>
+
+        <div class="item-card" data-name="Букет 'Класика біла'" data-price="850" data-img="assets/item2.jpg" data-desc="Елегантна композиція з білих троянд та евкаліпту.">
+          <img src="assets/item2.jpg" alt="Букет Класика біла">
+          <div>
+            <div class="item-meta">
+              <div>Класика біла</div>
+              <div class="price">₴850</div>
+            </div>
+            <button class="btn primary view-item">Переглянути</button>
+          </div>
+        </div>
+
+        <div class="item-card" data-name="Композиція 'Празник'" data-price="1200" data-img="assets/item3.jpg" data-desc="Розкішна святкова композиція у подарунковій коробці.">
+          <img src="assets/item3.jpg" alt="Композиція Празник">
+          <div>
+            <div class="item-meta">
+              <div>Празник</div>
+              <div class="price">₴1200</div>
+            </div>
+            <button class="btn primary view-item">Переглянути</button>
+          </div>
+        </div>
+
+        <div class="item-card" data-name="Міні-букет 'Теплий ранок'" data-price="420" data-img="assets/item4.jpg" data-desc="Компактний милий букет для дрібного подарунка.">
+          <img src="assets/item4.jpg" alt="Міні-букет Теплий ранок">
+          <div>
+            <div class="item-meta">
+              <div>Міні-букет</div>
+              <div class="price">₴420</div>
+            </div>
+            <button class="btn primary view-item">Переглянути</button>
+          </div>
+        </div>
+
+        <!-- Add more items similarly -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 Peona Flo — Київ</p>
+    </div>
+  </footer>
+
+  <!-- Item modal (inline view) -->
+  <div id="itemModal" class="modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal" role="document">
+      <div style="position:relative;">
+        <button id="closeItemModal" style="position:absolute;right:10px;top:10px;background:transparent;border:0;font-size:22px;color:#fff">✕</button>
+        <div class="modal-body">
+          <img id="itemImage" src="" alt="">
+          <h3 id="itemName" style="margin-top:10px"></h3>
+          <div id="itemPrice" style="color:var(--accent);font-weight:700;margin-top:6px"></div>
+          <div id="itemDesc" class="desc"></div>
+          <div class="modal-actions">
+            <a id="waOrderBtn" class="btn primary" target="_blank" rel="noopener">Замовити через WhatsApp</a>
+            <a id="instaBtn" class="btn" target="_blank" rel="noopener">Переглянути в Instagram</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+/* NAV toggle */
+const navToggleShop = document.getElementById('navToggleShop');
+const mainNavShop = document.getElementById('mainNavShop');
+navToggleShop.addEventListener('click', ()=> {
+  const open = mainNavShop.style.display === 'block';
+  mainNavShop.style.display = open ? 'none' : 'block';
+  navToggleShop.setAttribute('aria-expanded', String(!open));
+});
+
+/* Item modal logic */
+const viewButtons = document.querySelectorAll('.view-item');
+const itemModal = document.getElementById('itemModal');
+const itemImage = document.getElementById('itemImage');
+const itemName = document.getElementById('itemName');
+const itemPrice = document.getElementById('itemPrice');
+const itemDesc = document.getElementById('itemDesc');
+const waOrderBtn = document.getElementById('waOrderBtn');
+const instaBtn = document.getElementById('instaBtn');
+const closeItemModal = document.getElementById('closeItemModal');
+
+viewButtons.forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    const card = e.target.closest('.item-card');
+    const name = card.dataset.name || 'Товар';
+    const price = card.dataset.price || '';
+    const img = card.dataset.img || card.querySelector('img').src;
+    const desc = card.dataset.desc || card.querySelector('img').alt || '';
+    // fill modal
+    itemImage.src = img;
+    itemName.textContent = name;
+    itemPrice.textContent = price ? `₴${price}` : '';
+    itemDesc.textContent = desc;
+    // whatsapp prefilled message (URL encode)
+    const phone = '380500342827'; // change if needed
+    const text = encodeURIComponent(`Привіт! Хочу замовити: ${name} — ціна ${price ? price + ' грн' : ''}. Можете підтвердити наявність і доставку?`);
+    waOrderBtn.href = `https://wa.me/${phone}?text=${text}`;
+    instaBtn.href = 'https://instagram.com/peona_flo';
+    // show
+    itemModal.classList.add('show');
+    itemModal.setAttribute('aria-hidden','false');
+  });
+});
+
+closeItemModal.addEventListener('click', ()=> {
+  itemModal.classList.remove('show');
+  itemModal.setAttribute('aria-hidden','true');
+  itemImage.src = '';
+});
+
+/* close when clicking on backdrop */
+itemModal.addEventListener('click', (e)=>{
+  if (e.target === itemModal) {
+    itemModal.classList.remove('show');
+    itemModal.setAttribute('aria-hidden','true');
+    itemImage.src = '';
+  }
+});
+</script>
+</body>
+</html>
